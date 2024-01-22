@@ -29,7 +29,7 @@ public class GameOfLife {
 		int[][] board = read(fileName);
         int rows = board.length;
         int cols = board[0].length;
-        int[][] newBoard = new int[rows][columns];
+        int[][] newBoard = new int[rows][cols];
         for (int i = 1; i < rows; i++) {
             for (int j = 1; j < cols ; j++) {
                 newBoard[i][j] = cellValue(board, i, j);
@@ -77,8 +77,8 @@ public class GameOfLife {
             int length = l.length();
 		if (length != 0) {
                 for (j = 1; j <= length; j++) {
-                    char c = l.charAt(j - 1);
-                    if (c == 'x')
+                    char ch = l.charAt(j - 1);
+                    if (ch == 'x')
                         board[i][j] = 1;
                 }
             }
@@ -94,9 +94,9 @@ public class GameOfLife {
 		int[][] updatedB = new int[board.length][board[0].length];
         for (int i = 1; i < board.length - 1; i++) {
             for (int j = 1; j < board[0].length - 1; j++)
-			updatedB[i][j] = cellValue(board, i, j);
+			newBoard1[i][j] = cellValue(board, i, j);
         }
-        return updatedB;
+        return newBoard1 ;
 	}
 	
 
