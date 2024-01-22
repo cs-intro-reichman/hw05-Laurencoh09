@@ -13,7 +13,7 @@ public class GameOfLife {
 		//// (Run one test at a time).
 		//// test1(fileName);
 		//// test2(fileName);
-		//// test3(fileName, 3);
+	 test3(fileName, 3);
 		//// play(fileName);
 	}
 	
@@ -27,6 +27,12 @@ public class GameOfLife {
 	// the count and cellValue functions.
 	private static void test2(String fileName) {
 		int[][] board = read(fileName);
+		int columns = board[0].lenght;
+		int rows = board.lenght;
+		int[][] newBoard = int[columns][rows];
+		 for (int i = 1, i < rows, i++);
+		      for (int j = 1, j < columns, j++);
+			   newBoard[i][j]= cellValue (board, i, j);
 		//// Write here code that tests that the count and cellValue functions
 		//// are working properly, and returning the correct values.
 	}
@@ -63,16 +69,34 @@ public class GameOfLife {
 		int rows = Integer.parseInt(in.readLine());
 		int cols = Integer.parseInt(in.readLine());
 		int[][] board = new int[rows + 2][cols + 2];
-		//// Replace the following statement with your code.
-		return null;
+
+		int i = 1, j = 1;
+        while (!in.isEmpty()) {
+            String l = in.readLine();
+            int length = l.length();
+            if (length != 0) {
+                for (j = 1; j <= length; j++) {
+                    char ch = l.charAt(j - 1);
+                    if (ch == 'x')
+                        board[i][j] = 1;
+                }
+            }
+            i++;
+        }
+        return board;
 	}
+		//// Replace the following statement with your code.
 	
 	// Creates a new board from the given board, using the rules of the game.
 	// Uses the cellValue(board,i,j) function to compute the value of each 
 	// cell in the new board. Returns the new board.
 	public static int[][] evolve(int[][] board) {
+		int[][] newBoard2 = int[board.lenght][board[0].lenght];
+		 for (int i = 1, i < board.length - 1, i++);
+		      for (int j = 1, j < board[0].lenght - 1 , j++);
+			   newBoard2[i][j]= cellValue (board, i, j);
 		//// Replace the following statement with your code.
-		return null;
+		return newBoard2;
 	}
 
 	// Returns the value that cell (i,j) should have in the next generation.
@@ -85,8 +109,26 @@ public class GameOfLife {
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1. 
 	// Uses the count(board,i,j) function to count the number of alive neighbors.
 	public static int cellValue(int[][] board, int i, int j) {
-		//// Replace the following statement with your code.
-		return 0;
+		int neighborsAlive = count(board, i, j);
+		if (board[i][j] == 1) {
+			// Cell is alive
+			if (neighborsAlive < 2 || neighborsAlive > 3) {
+				// Cell dies
+				return 0;
+			} else {
+				// Cell remains alive
+				return 1;
+			}
+		} else {
+			// Cell is dead
+			if (neighborsALive == 3) {
+				// Cell becomes alive
+				return 1;
+			} else {
+				// Cell remains dead
+				return 0;
+			}
+		}
 	}
 	
 	// Counts and returns the number of living neighbors of the given cell
@@ -94,13 +136,21 @@ public class GameOfLife {
 	// Assumes that i is at least 1 and at most the number of rows in the board - 1. 
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1. 
 	public static int count(int[][] board, int i, int j) {
-		//// Replace the following statement with your code.
-		return 0;
+		int count = 0;
+        if (i > 0 && i < board.length - 1 && j > 0 && j < board[0].length - 1)
+            count = board[i - 1][j - 1] + board[i - 1][j] + board[i - 1][j + 1] + board[i][j - 1] + board[i][j + 1]+ board[i + 1][j - 1] + board[i + 1][j] + board[i + 1][j + 1];
+        return count;
+
 	}
 	
 	// Prints the board. Alive and dead cells are printed as 1 and 0, respectively.
     public static void print(int[][] arr) {
-		//// Write your code here.
+		int count = 0;
+        if (i > 0 && i < board.length - 1 && j > 0 && j < board[0].length - 1)
+            count = board[i - 1][j - 1] + board[i - 1][j] + board[i - 1][j + 1] + board[i][j - 1] + board[i][j + 1]+ board[i + 1][j - 1] + board[i + 1][j] + board[i + 1][j + 1];
+        return count;
+	}
+    
 	}
 		
     // Displays the board. Living and dead cells are represented by black and white squares, respectively.
