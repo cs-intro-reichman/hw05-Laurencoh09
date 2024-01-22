@@ -28,10 +28,10 @@ public class GameOfLife {
 	private static void test2(String fileName) {
 		int[][] board = read(fileName);
 		int rows = board[0].lenght;
-		int columns = board.lenght;
-		int[][] newBoard = int[rows][columns];
-		 for (int i = 1, i < rows, i++);
-		      for (int j = 1, j < columns, j++);
+		int cols = board.lenght;
+		int[][] newBoard = int[rows][cols];
+		 for (int i = 1, i < rows, i++) {
+		      for (int j = 1, j < cols, j++) {
 			   newBoard[i][j]= cellValue (board, i, j);
 		//// Write here code that tests that the count and cellValue functions
 		//// are working properly, and returning the correct values.
@@ -92,12 +92,13 @@ public class GameOfLife {
 	// cell in the new board. Returns the new board.
 	public static int[][] evolve(int[][] board) {
 		int[][] newBoard2 = int[board.lenght][board[0].lenght];
-		 for (int i = 1, i < board.length - 1, i++);
-		      for (int j = 1, j < board[0].lenght - 1 , j++);
+		 for (int i = 1, i < board.length - 1, i++) {
+		      for (int j = 1, j < board[0].lenght - 1 , j++){
 			   newBoard2[i][j]= cellValue (board, i, j);
 		//// Replace the following statement with your code.
 		return newBoard2;
-	}
+		 }     
+		      }
 
 	// Returns the value that cell (i,j) should have in the next generation.
 	// If the cell is alive (equals 1) and has fewer than two live neighbors, it dies (becomes 0).
@@ -108,7 +109,7 @@ public class GameOfLife {
 	// Assumes that i is at least 1 and at most the number of rows in the board - 1. 
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1. 
 	// Uses the count(board,i,j) function to count the number of alive neighbors.
-	public static int cellValue(int[][] board, int i, int j) {
+	public static int cellValue (int[][] board, int i, int j) {
 		int neighborsAlive = count(board, i, j);
 		if (board[i][j] == 1) {
 			// Cell is alive
