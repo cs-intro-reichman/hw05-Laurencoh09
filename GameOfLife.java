@@ -27,9 +27,9 @@ public class GameOfLife {
 	// the count and cellValue functions.
 	private static void test2(String fileName) {
 		int[][] board = read(fileName);
-		int columns = board[0].lenght;
-		int rows = board.lenght;
-		int[][] newBoard = int[columns][rows];
+		int rows = board[0].lenght;
+		int columns = board.lenght;
+		int[][] newBoard = int[rows][columns];
 		 for (int i = 1, i < rows, i++);
 		      for (int j = 1, j < columns, j++);
 			   newBoard[i][j]= cellValue (board, i, j);
