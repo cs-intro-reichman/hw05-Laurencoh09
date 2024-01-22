@@ -27,8 +27,8 @@ public class GameOfLife {
 	// the count and cellValue functions.
 	private static void test2(String fileName) {
 		int[][] board = read(fileName);
-		int rows = board[0].lenght;
-		int cols = board.lenght;
+		int rows = board.lenght;
+		int cols = board[0].lenght;
 		int[][] newBoard = int[rows][cols];
 		for (int i = 1, i < rows, i++) {
 		      for (int j = 1, j < cols, j++) {
@@ -71,17 +71,16 @@ public class GameOfLife {
 		int cols = Integer.parseInt(in.readLine());
 		int[][] board = new int[rows + 2][cols + 2];
 
-		int i = 1, j = 1;
+        int i = 1, j = 1;
         while (!in.isEmpty()) {
             String l = in.readLine();
             int length = l.length();
             if (length != 0) {
                 for (j = 1; j <= length; j++) {
                     char ch = l.charAt(j - 1);
-                    if (ch == 'x'){
+                    if (ch == 'x')
                         board[i][j] = 1;
                 }
-            }
             i++;
             }
         return board;
@@ -150,10 +149,9 @@ public class GameOfLife {
     public static void print(int[][] arr) {
 		int count = 0;
 		for (int i = 1; i < arr.length - 1; i++) {
-            for (int j = 1; j < arr[0].length - 1; j++)
-			{
+            for (int j = 1; j < arr[0].length - 1; j++){
                 System.out.printf("%3s", arr[i][j]);
-			}
+	    }
 
             System.out.println();
                }
